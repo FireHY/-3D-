@@ -21,7 +21,7 @@ let internalTime = getTime();
 let windowManager;
 let initialized = false;
 
-// get time in seconds since beginning of the day (so that all windows use the same time)
+// 获取自一天开始以来的时间（以秒为单位）（以便所有窗口都使用相同的时间）
 function getTime ()
 {
 	return (new Date().getTime() - today) / 1000.0;
@@ -34,7 +34,7 @@ if (new URLSearchParams(window.location.search).get("clear"))
 }
 else
 {	
-	// this code is essential to circumvent that some browsers preload the content of some pages before you actually hit the url
+	// 此代码对于规避某些浏览器在您实际点击 URL 之前预加载某些页面的内容至关重要
 	document.addEventListener("visibilitychange", () => 
 	{
 		if (document.visibilityState != 'hidden' && !initialized)
@@ -54,7 +54,7 @@ else
 	{
 		initialized = true;
 
-		// add a short timeout because window.offsetX reports wrong values before a short period 
+		// 添加短超时，因为 window.offsetX 在短时间内报告错误的值
 		setTimeout(() => {
 			setupScene();
 			setupWindowManager();
@@ -93,13 +93,13 @@ else
 		windowManager.setWinShapeChangeCallback(updateWindowShape);
 		windowManager.setWinChangeCallback(windowsUpdated);
 
-		// here you can add your custom metadata to each windows instance
+		// 您可以在此处将自定义元数据添加到每个 Windows 实例
 		let metaData = {foo: "bar"};
 
-		// this will init the windowmanager and add this window to the centralised pool of windows
+		// 这将初始化 WindowManager 并将此窗口添加到集中式窗口池中
 		windowManager.init(metaData);
 
-		// call update windows initially (it will later be called by the win change callback)
+		// 最初调用更新窗口（稍后将由 win 更改回调调用）
 		windowsUpdated();
 	}
 
@@ -112,14 +112,14 @@ else
 	{
 		let wins = windowManager.getWindows();
 
-		// remove all cubes
+		// 删除所有多维数据集
 		cubes.forEach((c) => {
 			world.remove(c);
 		})
 
 		cubes = [];
 
-		// add new cubes based on the current window setup
+		// 根据当前窗口设置添加新多维数据集
 		for (let i = 0; i < wins.length; i++)
 		{
 			let win = wins[i];
@@ -139,7 +139,7 @@ else
 
 	function updateWindowShape (easing = true)
 	{
-		// storing the actual offset in a proxy that we update against in the render function
+		// 将实际偏移量存储在我们在 render 函数中更新的代理中
 		sceneOffsetTarget = {x: -window.screenX, y: -window.screenY};
 		if (!easing) sceneOffset = sceneOffsetTarget;
 	}
@@ -152,7 +152,7 @@ else
 		windowManager.update();
 
 
-		// calculate the new position based on the delta between current offset and new offset times a falloff value (to create the nice smoothing effect)
+		// 根据当前偏移量和新偏移量之间的增量乘以衰减值计算新位置（以创建良好的平滑效果）
 		let falloff = .05;
 		sceneOffset.x = sceneOffset.x + ((sceneOffsetTarget.x - sceneOffset.x) * falloff);
 		sceneOffset.y = sceneOffset.y + ((sceneOffsetTarget.y - sceneOffset.y) * falloff);
@@ -164,7 +164,7 @@ else
 		let wins = windowManager.getWindows();
 
 
-		// loop through all our cubes and update their positions based on current window positions
+		// 遍历我们所有的立方体，并根据当前窗口位置更新它们的位置
 		for (let i = 0; i < cubes.length; i++)
 		{
 			let cube = cubes[i];
@@ -184,7 +184,7 @@ else
 	}
 
 
-	// resize the renderer to fit the window size
+	// 调整渲染器的大小以适合窗口大小
 	function resize ()
 	{
 		let width = window.innerWidth;
