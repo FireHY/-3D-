@@ -1,41 +1,21 @@
-# Multiple Window 3D Scene using Three.js
+# 使用 Three.js 的多窗口 3D 场景
 
-## Introduction
-This project demonstrates a unique approach to creating and managing a 3D scene across multiple browser windows using Three.js and localStorage. It's designed for developers interested in advanced web graphics and window management techniques.
+## 简介
+此项目演示了一种使用 Three.js 和 localStorage 跨多个浏览器窗口创建和管理 3D 场景的独特方法。它专为对高级 Web 图形和窗口管理技术感兴趣的开发人员而设计。
 
-## Features
-- 3D scene creation and rendering with Three.js.
-- Synchronization of 3D scenes across multiple browser windows.
-- Dynamic window management and state synchronization using localStorage.
+## 特点
+- 使用Three.js创建和渲染 3D 场景。
+- 跨多个浏览器窗口同步 3D 场景。
+- 使用 localStorage 进行动态窗口管理和状态同步。
 
-## Installation
-Clone the repository and open `index.html` in your browser to start exploring the 3D scene.
+## 安装
+克隆存储库并在浏览器中打开“index.html”以开始探索 3D 场景。
 
 ```
 git clone https://github.com/bgstaal/multipleWindow3dScene
 ```
-## Usage
-The main application logic is contained within `main.js` and `WindowManager.js`. The 3D scene is rendered in `index.html`, which serves as the entry point of the application.
+## 用法
+主要应用程序逻辑包含在“main.js”和“WindowManager.js”中。3D 场景以“index.html”呈现，用作应用程序的入口点。
 
-## Structure and Components
-- `index.html`: Entry point that sets up the HTML structure and includes the Three.js library and the main script.
-- `WindowManager.js`: Core class managing window creation, synchronization, and state management across multiple windows.
-- `main.js`: Contains the logic for initializing the 3D scene, handling window events, and rendering the scene.
-- `three.r124.min.js`: Minified version of the Three.js library used for 3D graphics rendering.
-
-## Detailed Functionality
-- `WindowManager.js` handles the lifecycle of multiple browser windows, including creation, synchronization, and removal. It uses localStorage to maintain state across windows.
-- `main.js` initializes the 3D scene using Three.js, manages the window's resize events, and updates the scene based on window interactions.
-
-## Contributing
-Contributions to enhance or expand the project are welcome. Feel free to fork the repository, make changes, and submit pull requests.
-
-## License
-This project is open-sourced under the MIT License.
-
-## Acknowledgments
-- The Three.js team for their comprehensive 3D library.
-- x.com/didntdrinkwater for this readme.
-
-## Contact
-For more information and updates, follow [@_nonfigurativ_](https://twitter.com/_nonfigurativ_) on Twitter.
+## 结构和组件
+- 'index.html'：设置 HTML 结构的入口点，包括 Three.js 库和 main
